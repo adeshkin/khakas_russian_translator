@@ -94,32 +94,27 @@ bash finetune.sh
 ```
 </details>
 
-### Notation:
-* kk - kazakh
-* kh - khakas
-* ru - russian
-
 ### Data: 
 **Number of sentences:**
 
-|       | train | valid | test | 
-|:-----:|:-----:|:-----:|:----:|
-| kk-ru |  1M   |  1k   |  1k  |
-| kh-ru |  29k  |  1k   |  1k  |
-|  kh*  | 150k  |   -   |  -   |
-|  ru*  | 739k  |   -   |  -   |
+|                | train | valid | test | 
+|:--------------:|:-----:|:-----:|:----:|
+| kazakh-russian |  1M   |  1k   |  1k  |
+| khakas-russian |  29k  |  1k   |  1k  |
+|    khakas*     | 150k  |   -   |  -   |
+|    russian*    | 739k  |   -   |  -   |
 
 **monolingual*
 
 ### Experiment results:
 **BLEU scores:**
 
-|    Model    | Mode  | From scratch | Transfer learning | Transfer learning <br/> + Backtranslation | 
-|:-----------:|-------|:------------:|:-----------------:|:-----------------------------------------:|
-| transformer | kh-ru |     2.37     |       17.78       |                   18.73                   |
-| transformer | ru-kh |     2.85     |       17.20       |                   20.24                   |
-|    lstm     | kh-ru |     5.68     |       8.32        |                   9.41                    |
-|    lstm     | ru-kh |     6.95     |       9.09        |                   12.40                   |
+|    Model    | Mode           | From scratch | Transfer learning | Transfer learning <br/> + Backtranslation | 
+|:-----------:|----------------|:------------:|:-----------------:|:-----------------------------------------:|
+| transformer | khakas-russian |     2.37     |       17.78       |                   18.73                   |
+| transformer | russian-khakas |     2.85     |       17.20       |                   20.24                   |
+|    lstm     | khakas-russian |     5.68     |       8.32        |                   9.41                    |
+|    lstm     | russian-khakas |     6.95     |       9.09        |                   12.40                   |
 
 <!---
 ### Examples:
