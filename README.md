@@ -26,7 +26,7 @@ pip install -r requirements.txt
 <details>
   <summary>Data layout</summary>
 
-1. Splitting into training, validation, test samples;
+1. Splitting into training, validation and test samples;
 2. Word tokenization (example, `from nltk.tokenize import WordPunctTokenizer`);
 3. Joining parent and child training samples to create shared dictionary and put them into directory `all`.
 
