@@ -26,6 +26,7 @@ pip install -r requirements.txt
 <details>
   <summary>Data layout</summary>
 
+
 1. Splitting into training, validation and test samples;
 2. Word tokenization (example, `from nltk.tokenize import WordPunctTokenizer`);
 3. Joining parent and child training samples to create shared dictionary and put them into directory `all`.
@@ -94,6 +95,15 @@ bash finetune.sh
 ```
 </details>
 
+<details>
+  <summary>Evaluation</summary>
+
+```bash
+cd transfer_learning
+bash evaluate.sh
+```
+</details>
+
 ### Data: 
 **Number of sentences:**
 
@@ -132,6 +142,7 @@ bash finetune.sh
   * [Backtranslation](https://github.com/pytorch/fairseq/tree/main/examples/backtranslation)
 * Papers:
   * [Understanding Back-Translation at Scale](https://arxiv.org/abs/1808.09381)
+* Articles:
   * [Передача знания и Нейронный машинный перевод на практике](https://habr.com/ru/post/475750/)
   * [Обратный перевод для Нейронного машинного перевода](https://habr.com/ru/post/491794/)
 
