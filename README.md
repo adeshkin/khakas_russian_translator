@@ -119,7 +119,7 @@ bash evaluate.sh
 
 **monolingual*
 
-### Experiment results:
+### Experimental results:
 **BLEU scores:**
 
 |                |    Model    | From scratch | Transfer learning | Transfer learning <br/> + Backtranslation | 
