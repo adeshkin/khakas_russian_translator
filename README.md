@@ -9,8 +9,7 @@
 - [subword-nmt](https://github.com/rsennrich/subword-nmt)
 
 ### Usage:
-- [Colab](https://colab.research.google.com/drive/1CcW4NMZlw1vGCGWLhEaJuPr7ueR8KIWO?usp=sharing)
-
+- Pipeline [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1CcW4NMZlw1vGCGWLhEaJuPr7ueR8KIWO?usp=sharing)
 <details>
   <summary>Environment setup</summary>
 
