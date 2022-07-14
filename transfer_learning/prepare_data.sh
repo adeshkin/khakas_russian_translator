@@ -26,11 +26,13 @@ mkdir $bpe_dir/$part
 
 for lang in 'kaz_khak' 'ru'
 do
-    mode='train'
-    echo "apply_bpe.py to ${part}: ${lang}.${mode}..."
-    subword-nmt apply-bpe -c $bpe_dir/bpe.codes \
-        --vocabulary $bpe_dir/bpe.vocab.$lang \
-        --vocabulary-threshold $voc_thr < $tok_dir/$lang.$mode.tok > $bpe_dir/$part/$mode.$lang
+    for mode in 'train' 'valid' 'test'
+    do
+        echo "apply_bpe.py to ${part}: ${lang}.${mode}..."
+        subword-nmt apply-bpe -c $bpe_dir/bpe.codes \
+            --vocabulary $bpe_dir/bpe.vocab.$lang \
+            --vocabulary-threshold $voc_thr < $tok_dir/$lang.$mode.tok > $bpe_dir/$part/$mode.$lang
+    done
 done
 
 
@@ -89,12 +91,27 @@ tgt_lang='ru'
 
 echo "fairseq-preprocess to ${part}: ${src_lang}->${tgt_lang}..."
 fairseq-preprocess --source-lang $src_lang --target-lang $tgt_lang \
-    --trainpref $data_dir/train \
+    --trainpref $data_dir/train --validpref $data_dir/valid --testpref $data_dir/test \
     --destdir $data_dir \
     --workers 20
 
 cp $data_dir/dict.kaz_khak.txt $data_dir/dict.kaz.txt
 cp $data_dir/dict.kaz_khak.txt $data_dir/dict.khak.txt
+
+src_lang='ru'
+tgt_lang='kaz_khak'
+
+src_dict=$bpe_dir/all/dict.$src_lang.txt
+tgt_dict=$bpe_dir/all/dict.$tgt_lang.txt
+
+echo "fairseq-preprocess to ${part}: ${src_lang}->${tgt_lang}..."
+fairseq-preprocess --source-lang $src_lang --target-lang $tgt_lang \
+    --srcdict $src_dict --tgtdict $tgt_dict \
+    --trainpref $data_dir/train --validpref $data_dir/valid --testpref $data_dir/test \
+    --destdir $data_dir \
+    --workers 20
+
+
 
 
 part='parent'
