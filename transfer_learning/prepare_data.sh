@@ -9,7 +9,7 @@ mkdir $bpe_dir
 
 
 part='all'
-tok_dir=$source_dir/tok_data/$part
+tok_dir=$source_dir/fairseq_tok_data/$part
 
 echo "learn_bpe.py on ${part}..."
 subword-nmt learn-joint-bpe-and-vocab \
@@ -37,7 +37,7 @@ done
 
 
 part='parent'
-tok_dir=$source_dir/tok_data/$part
+tok_dir=$source_dir/fairseq_tok_data/$part
 mkdir $bpe_dir/$part
 
 for lang in 'kaz' 'ru'
@@ -53,7 +53,7 @@ done
 
 
 part='child_no_noisy'
-tok_dir=$source_dir/tok_data/$part
+tok_dir=$source_dir/fairseq_tok_data/$part
 mkdir $bpe_dir/$part
 
 for lang in 'khak' 'ru'
@@ -69,7 +69,7 @@ done
 
 
 part='child_with_noisy'
-tok_dir=$source_dir/tok_data/$part
+tok_dir=$source_dir/fairseq_tok_data/$part
 mkdir $bpe_dir/$part
 
 for lang in 'khak' 'ru'
